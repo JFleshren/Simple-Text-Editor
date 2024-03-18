@@ -4,22 +4,24 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-      "start:dev": "nodemon server.js --ignore client",
-      "start": "node server.js",
-      "server": "nodemon server.js --ignore client",
-      "build": "webpack --mode production",
-      "install": "npm install --prefix server && npm install --prefix client",
-      "client": "npm start --prefix client"
+        "start:dev": "nodemon server.js --ignore client",
+        "start": "node server.js",
+        "server": "nodemon server.js --ignore client",
+        "build": "webpack --mode production",
+        "install": "npm install --prefix server && npm install --prefix client",
+        "client": "npm start --prefix client",
+        "lint": "eslint ."
     },
     "keywords": [],
-    "author": "",
+    "author": "Jared",
     "license": "ISC",
     "dependencies": {
-      "express": "^4.17.1",
-      "if-env": "^1.0.4"
+        "express": "^4.17.1",
+        "idb": "^8.0.0",
+        "if-env": "^1.0.4"
     },
     "devDependencies": {
-      "concurrently": "^5.2.0",
-      "nodemon": "^2.0.4"
+        "concurrently": "^5.2.0",
+        "nodemon": "^2.0.4"
     }
-  }
+}
