@@ -4,12 +4,12 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-      "start:dev": "",
-      "start": "",
-      "server": "",
-      "build": "",
-      "install": "",
-      "client": ""
+      "start:dev": "nodemon server.js --ignore client",
+      "start": "node server.js",
+      "server": "nodemon server.js --ignore client",
+      "build": "webpack --mode production",
+      "install": "npm install --prefix server && npm install --prefix client",
+      "client": "npm start --prefix client"
     },
     "keywords": [],
     "author": "",
