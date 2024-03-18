@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "20.9.0"
+  },
   "scripts": {
     "start:dev": "nodemon server.js --ignore client",
     "start": "npm run build && cd server && node server.js",
