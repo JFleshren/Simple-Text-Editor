@@ -11,7 +11,7 @@ const loadSpinner = () => {
   spinner.classList.add('spinner');
   spinner.innerHTML = `
   <div class="loading-container">
-  <div class="loading-spinner" />
+  <div class="loading-spinner" /></div>
   </div>
   `;
   main.appendChild(spinner);
@@ -19,7 +19,7 @@ const loadSpinner = () => {
 
 const editor = new Editor();
 
-if (!editor || typeof editor === 'undefined') {
+if (!editor || typeof editor === 'undefined' || !editor.editor) {
   loadSpinner();
 }
 
@@ -30,4 +30,17 @@ if ('serviceWorker' in navigator) {
   workboxSW.register();
 } else {
   console.error('Service workers are not supported in this browser.');
+}
+if (workbox) {
+  workbox.precaching.precacheAndRoute([
+    { url: '/index.html', revision: null },
+    { url: '/css/style.css', revision: null },
+    { url: '/js/database.js', revision: null },
+    { url: '/js/editor.js', revision: null },
+    { url: '/js/header.js', revision: null },
+    { url: '/js/index.js', revision: null },
+    { url: '/js/install.js', revision: null },
+    { url: '/images/logo.png', revision: null },
+
+  ]);
 }

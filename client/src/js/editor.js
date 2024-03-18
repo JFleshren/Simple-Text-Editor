@@ -2,7 +2,7 @@
 import { getDb, putDb } from './database';
 import { header } from './header';
 
-export default class {
+export default class Editor {
   constructor() {
     const localData = localStorage.getItem('content');
 
