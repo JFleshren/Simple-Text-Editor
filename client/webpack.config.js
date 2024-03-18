@@ -7,60 +7,47 @@ module.exports = () => {
   return {
     mode: 'development',
     entry: {
-      main: './client/src/js/index.js',
-      install: './client/src/js/install.js'
+      main: './src/js/index.js',
+      install: './src/js/install.js'
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'client', 'dist'),
+      path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './src/index.html',
-        filename: 'index.html',
-        chunks: ['main']
-      }),
-      new HtmlWebpackPlugin({
-        template: './src/install.html',
-        filename: 'install.html',
-        chunks: ['install']
-      }),
-      new WebpackPwaManifest({
-        name: 'JATE App',
-        short_name: 'JATE',
-        description: 'A note-taking and code snippet application',
-        background_color: '#ffffff',
-        theme_color: '#2196f3',
-        icons: [
-          {
-            src: path.resolve('src/images/icon.png'),
-            sizes: [96, 128, 192, 256, 384, 512]
-          }
-        ]
+        template: './index.html',
+        title: 'Webpack Plugin',
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'service-worker.js'
-      })
+        swDest: 'ssrc-sw.js'
+      }),
+      new WebpackPwaManifest({
+        name: 'Text Editor',
+        short_name: 'JATE',
+        description: 'A PWA text editor',
+        background_color: '#ffffff',
+        theme_color: '#2196f3',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons')
+          }
+        ]
+      }),
     ],
 
     module: {
       rules: [
+        //CSS loader to allow for styling
         {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader']
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
         },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env'],
-              plugins: ['@babel/plugin-proposal-object-rest-spread']
-            }
-          }
-        }
       ],
     },
   };
