@@ -11,7 +11,7 @@ Build the client and start the application by running the start script with 'npm
 
 ## Usage
 
-Run the application with 'npm start' or 'cd server && server.js.' After doing so, you'' be presnted with the opening page. You can begin writing text here, or you can click the 'Install' button in the upper left corner of the page. This will install the application to your device so that it is functional even without an internet connection.
+Run the application with 'npm start' or 'cd server && server.js.' After doing so, you'll be presnted with the opening page. You can begin writing text here, or you can click the 'Install' button in the upper left corner of the page. This will install the application to your device so that it is functional even without an internet connection.
 
 
 ## Credits
